@@ -1,0 +1,47 @@
+ion-toolbar {
+    --background: white;
+}
+
+.notifications-btn {
+    padding-right: 5px;
+    font-size: 20px;
+}
+
+.ion-spinner {
+    width: 100%;
+    margin-top: 80%;
+    transform: scale(1.5);
+}
+
+.Spinner {
+    text-align: center;
+}
+
+.row {
+    margin: 5px;
+}
+
+.card {
+    border: 1px solid black;
+    margin: 0px;
+    padding: 4px;
+    height: auto;
+
+    .img {
+        padding: 5px;
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .text {
+        padding-left: 8px;
+        margin: 0px;
+        color: black;
+        font-size: 15px;
+    }
+}
+
+.backbtn {
+    color: white;
+}

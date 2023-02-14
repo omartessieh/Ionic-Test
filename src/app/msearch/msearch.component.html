@@ -1,0 +1,17 @@
+<ion-header mode="ios" class="ion-no-border" translucent>
+  <ion-toolbar style="padding-top: 15px;">
+    <ion-searchbar placeholder="Search in RedStore" (ionChange)="FilterData($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <!--Get List-->
+  <ion-list>
+    <ion-item lines="full" *ngFor="let item of newssearch" (click)="goto(item.id,item.title,item.type)">
+      {{item.title}}
+      <ion-icon name="chevron-forward-outline" slot="end" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

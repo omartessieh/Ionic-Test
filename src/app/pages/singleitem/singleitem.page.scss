@@ -1,0 +1,31 @@
+img {
+    width: auto;
+    height: 250px;
+}
+
+.seperator {
+    hr {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background: black;
+    }
+}
+
+.item-name {
+    color: black;
+}
+
+.price {
+    color: black;
+}
+
+.description {
+    h5 {
+        color: black;
+    }
+
+    p {
+        color: black;
+    }
+}

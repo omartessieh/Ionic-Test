@@ -1,0 +1,59 @@
+<ion-header [translucent]="false" mode="ios" class="ion-no-border">
+  <ion-toolbar class="ion-margin-top">
+    <ion-buttons slot="start">
+      <ion-menu-button style="color: black;">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-searchbar placeholder="Search in RedStore" (click)="openModal()"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-icon name="log-in" (click)="logout()" style="font-size: 25px;padding-right: 10px;"></ion-icon>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <!--Carousels-->
+  <ion-slides [options]="option" pager>
+    <ion-slide *ngFor="let carousels of carousels">
+      <ion-card>
+        <img src="">
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  
+</ion-content>
+
+<!-- NOTE
+
+- search
+
+- modal
+
+- filter
+
+- Swipe Refresh
+
+- loadmore
+
+- list with icons
+
+- Side Menu
+
+- Tabs
+
+- get location
+
+- leaflet
+
+- Local Storage
+
+- Phone Info
+
+- Take Picture And Share Via Whatsapp
+
+- login With Guard
+
+-->

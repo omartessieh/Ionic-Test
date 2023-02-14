@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab2">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>{{Title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--Filter Bar-->
+  <ion-grid *ngIf="size != 0" style="    padding-left: 15px;">
+    <ion-row class="row">
+      <ion-col size="10" style="vertical-align: middle;">
+        Filter
+      </ion-col>
+      <ion-col size="2" style="text-align: center;">
+        <ion-icon class="icon" id="tutorialIcon" name="filter-outline" (click)="onclick()"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid style="padding-top: 0px;" *ngIf="visible">
+    <ion-row class="row">
+      <ion-col size="12">
+        <ion-item lines="none">
+          <ion-label>Sub Categories</ion-label>
+          <ion-select interface="popover" [(ngModel)]="subselectedval" (ionChange)="OnChange()">
+            <ion-select-option [value]="Category_id">{{Title}}</ion-select-option>
+            <ion-select-option [value]="items.subCategory_id"
+              *ngFor="let items of SubProducts">{{items.title}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" *ngIf="size != 0">
+        <ion-item lines="none">
+          <ion-label>Sort BY Price</ion-label>
+          <ion-select interface="popover" [(ngModel)]="sortselectedval" (ionChange)="sortProductByPrice()">
+            <ion-select-option value="l2h">High to Low</ion-select-option>
+            <ion-select-option value="h2l">Low to High</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--Spiiner if no data-->
+  <div class="Spinner">
+    <ion-spinner class="ion-spinner" *ngIf="size == 0" name="bubbles"></ion-spinner>
+  </div>
+
+  <!--Get All Data List-->
+  <ion-grid style="padding-top: 0px;">
+    <ion-row class="row">
+      <ion-col size="6" *ngFor="let items of Products" (click)="gopsingleitem(items.product_id,items.productTitle)">
+        <ion-card class="card">
+          <img src="" class="img" />
+          <h6 class="text">{{items.productTitle}}</h6>
+          <div>
+            <span *ngIf="items.discount_Percent == 0" style="padding-left: 8px;">{{items.pricePerUnit}}$</span>
+
+            <span *ngIf="items.discount_Percent != 0" style="padding-left: 8px;">{{items.priceAfterDiscount}}$</span>
+            <span *ngIf="items.discount_Percent != 0"
+              style="color: #999;text-decoration: line-through;margin: 0px 5px;">{{items.pricePerUnit}}$</span>
+            <span *ngIf="items.discount_Percent != 0"
+              style="float: right;padding-right: 8px;color: red;">-{{items.discount_Percent}}%</span>
+
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
